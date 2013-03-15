@@ -10,15 +10,15 @@ WE.api = WE.api || {};
 
 WE.api.ChatModel = function(){
 
-	this.postUrl = "#";//直接提交到当前路径
+	this.postUrl = "?1";//直接提交到当前路径
 	this.setUserNameURL = "/sys/set_user_name";
 	this.updateRoomURL = "/sys/update_room";
 };
 
 WE.api.ChatModel.prototype = WE.BaseModel.prototype;
 
-WE.api.ChatModel.prototype.postChat = function( roomid, text ){
-	this.post(this.postUrl, { roomid:roomid, text:text });
+WE.api.ChatModel.prototype.postChat = function( roomid, text, to ){
+	this.post(this.postUrl, { roomid:roomid, text:text, to:to });
 };
 
 WE.api.ChatModel.prototype.updateUserName = function( name ){
